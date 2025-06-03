@@ -1,0 +1,108 @@
+<html>
+    <title>Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            padding: 25px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px 0;
+            text-align: left;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 100%;
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Book Your Hotel</h1>
+    <form action="Booking.jsp" method="post">
+        <table>
+            <tr><td>Name</td><td><input type="text" name="nm1" required></td></tr>
+            <tr><td>Age</td><td><input type="number" name="nm2" min="18" required></td></tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <label><input type="radio" value="male" name="nm3" required> Male</label>
+                    <label><input type="radio" value="female" name="nm3"> Female</label>
+                </td>
+            </tr>
+            <tr><td>Phone</td><td><input type="text" name="nm4" pattern="\d{10}" title="Enter a 10-digit phone number" required></td></tr>
+            <tr><td>Email</td><td><input type="email" name="nm5" required></td></tr>
+            <tr><td>Address</td><td><input type="text" name="nm6" required></td></tr>
+            <tr><td>Hotel Name</td><td><input type="text" name="nm7" minlength="3" required></td></tr>
+            <tr>
+                <td>Room Type</td>
+                <td>
+                    <select name="nm8" required>
+                        <option value="">-- Select Room Type --</option>
+                        <option value="single">Single</option>
+                        <option value="double">Double</option>
+                        <option value="triple">Triple</option>
+                        <option value="queen">Queen</option>
+                        <option value="king">King</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td>Number of Rooms</td><td><input type="number" name="nm9" min="1" required></td></tr>
+            <tr><td>Number of People</td><td><input type="number" name="nm10" min="1" required></td></tr>
+            <tr>
+                <td>Group Gender</td>
+                <td>
+                    <select name="nm11" required>
+                        <option value="">-- Select Group Gender --</option>
+                        <option value="male">All Male</option>
+                        <option value="female">All Female</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Book</button>
+    </form>
+</div>
+
+</body>
+</html>

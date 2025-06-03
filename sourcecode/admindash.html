@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu li:hover {
+            background: #34495e;
+        }
+
+        /* Submenu */
+        .submenu {
+            list-style: none;
+            padding-left: 20px;
+            display: none;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            padding: 8px;
+        }
+
+        .submenu li a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .submenu li:hover {
+            background: #415b76;
+        }
+
+        /* Main Content - Iframe */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background: #ecf0f1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul class="menu">
+            <li><a href="adminkmaindash.html" target="content-frame">Dashboard</a></li>
+            <li>
+                <a href="#">Customer Management</a>
+                <ul class="submenu">
+                    <li><a href="addCustomer.html" target="content-frame"> Customer Add</a></li>
+                    <li><a href="studupdate.html" target="content-frame">Customer Update</a></li>
+                    <li><a href="studelete.html" target="content-frame">Customer Delete</a></li>
+                    <li><a href="searchstud.html" target="content-frame"> Customer Search</a></li>
+                    <li><a href="Customerdashboard.jsp" target="content-frame"> View all Customer</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Hotel Management</a>
+                <ul class="submenu">
+                     <li><a href="Hoteladd.html" target="content-frame">Add Hotel</a></li>
+            <li><a href="updatecomp.html" target="content-frame">Hotel update</a></li>
+            <li><a href="compdelete.html" target="content-frame"> Hotel delete</a></li>
+            <li><a href="searchHotel.html" target="content-frame">search  Hotel </a></li>
+            <li><a href="Hoteldashboard.jsp" target="content-frame">View all Registered <br> Hotels</a></li>
+                </ul>
+            </li>
+            <li><a href="logout.html" target="content">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <iframe name="content-frame" src="adminkmaindash.html"></iframe>
+    </div>
+
+</body>
+</html>

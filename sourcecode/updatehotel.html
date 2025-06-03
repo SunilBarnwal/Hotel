@@ -1,0 +1,105 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+    <script>
+        function validateUpdate() {
+            var hotelName = document.forms["updateHotelForm"]["nm1"].value;
+            var hotelWebsite = document.forms["updateHotelForm"]["nm2"].value;
+            var hotelPrice = document.forms["updateHotelForm"]["nm3"].value;
+            var rooms = document.forms["updateHotelForm"]["nm4"].value;
+            var email = document.forms["updateHotelForm"]["nm7"].value;
+            var password = document.forms["updateHotelForm"]["nm9"].value;
+
+            if (hotelName.trim() === "" || hotelWebsite.trim() === "" || hotelPrice.trim() === "" || rooms.trim() === "" || email.trim() === "" || password.trim() === "") {
+                alert("All fields must be filled out.");
+                return false;
+            }
+
+            if (isNaN(hotelPrice) || hotelPrice < 0) {
+                alert("Please enter a valid price.");
+                return false;
+            }
+
+            if (isNaN(rooms) || rooms < 1) {
+                alert("Number of rooms must be a positive number.");
+                return false;
+            }
+
+            var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Update Hotel Details</h2>
+        <form name="updateHotelForm" action="updatehotel.jsp" method="post" onsubmit="return validateUpdate()">
+            <input type="text" placeholder="Hotel Name" name="nm1" required>
+            <input type="url" placeholder="Hotel Website" name="nm2" required>
+            <input type="number" placeholder="Hotel Price" name="nm3" required>
+            <input type="number" placeholder="No. of Rooms" name="nm4" required>
+            <input type="text" placeholder="Extra Facilities" name="nm5">
+            <input type="text" placeholder="Customer Name" name="nm6">
+            <input type="email" placeholder="Email" name="nm7" required>
+            <input type="text" placeholder="Address" name="nm8">
+            <input type="password" placeholder="Password" name="nm9" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+</body>
+    </html>
+    
+    
+           
+     
+    

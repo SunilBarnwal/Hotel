@@ -1,0 +1,74 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function validateSearch() {
+            var hotelName = document.forms["searchForm"]["nm1"].value;
+            if (hotelName.trim() === "") {
+                alert("Please enter a hotel name to search.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Search Hotel</h2>
+        <form name="searchForm" action="searchhotel.jsp" method="post" onsubmit="return validateSearch()">
+            <input type="text" placeholder="Enter Hotel Name" required name="nm1">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+</body>
+    </html>
+    
+    
+           
+     
+    

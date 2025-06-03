@@ -1,0 +1,94 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var hotelName = document.forms["registrationForm"]["nm1"].value;
+            var email = document.forms["registrationForm"]["nm7"].value;
+            var password = document.forms["registrationForm"]["nm9"].value;
+            var price = document.forms["registrationForm"]["nm3"].value;
+            var rooms = document.forms["registrationForm"]["nm4"].value;
+
+            if (hotelName.trim() === "" || email.trim() === "" || password.trim() === "") {
+                alert("All fields are required!");
+                return false;
+            }
+            if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+            if (price < 0 || rooms < 1) {
+                alert("Enter valid values for price and number of rooms.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Hotel Registration</h1>
+        <form name="registrationForm" action="hotelregistration.jsp" method="post" onsubmit="return validateForm()">
+            <input type="text" placeholder="Hotel Name" required name="nm1">
+            <input type="url" placeholder="Hotel Website" required name="nm2">
+            <input type="number" placeholder="Price Range" required name="nm3" min="0">
+            <input type="number" placeholder="No. of Rooms" required name="nm4" min="1">
+            <input type="text" placeholder="Extra Facilities" name="nm5">
+            <input type="text" placeholder="Manager Name" required name="nm6">
+            <input type="email" placeholder="Email" required name="nm7">
+            <input type="text" placeholder="Address" required name="nm8">
+            <input type="password" placeholder="Password" required name="nm9" minlength="6">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+</html>

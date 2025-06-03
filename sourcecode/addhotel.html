@@ -1,0 +1,98 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        td {
+            padding: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="hoteladd.jsp" method="post">
+        <h1>HOTEL ADD</h1>
+        <table>
+            <tr>
+                <td><label for="hotelName">Hotel Name:</label></td>
+                <td><input type="text" id="hotelName" name="nm1" required></td>
+            </tr>
+            <tr>
+                <td><label for="hotelWebsite">Hotel Website:</label></td>
+                <td><input type="url" id="hotelWebsite" name="nm2" required></td>
+            </tr>
+            <tr>
+                <td><label for="hotelPrice">Hotel Price:</label></td>
+                <td><input type="number" id="hotelPrice" name="nm3" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="noOfRooms">No. of Rooms:</label></td>
+                <td><input type="number" id="noOfRooms" name="nm4" min="1" required></td>
+            </tr>
+            <tr>
+                <td><label for="facilities">Extra Facilities:</label></td>
+                <td><input type="text" id="facilities" name="nm5"></td>
+            </tr>
+            <tr>
+                <td><label for="customerName">Customer Name:</label></td>
+                <td><input type="text" id="customerName" name="nm6" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="nm7" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><input type="text" id="address" name="nm8" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="nm9" required></td>
+            </tr>
+        </table>
+        <button type="submit">Add Hotel</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+    <script>
+        function validateUpdate() {
+            var username = document.forms["updateForm"]["nm1"].value;
+            var age = document.forms["updateForm"]["nm2"].value;
+            var phone = document.forms["updateForm"]["nm4"].value;
+            var email = document.forms["updateForm"]["nm5"].value;
+            var password = document.forms["updateForm"]["nm7"].value;
+
+            if (username.trim() === "" || age.trim() === "" || phone.trim() === "" || email.trim() === "" || password.trim() === "") {
+                alert("All fields must be filled out.");
+                return false;
+            }
+
+            if (isNaN(age) || age < 18) {
+                alert("Please enter a valid age (18+).");
+                return false;
+            }
+
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+
+            var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Update Customer Details</h2>
+        <form name="updateForm" action="updatecust.jsp" method="post" onsubmit="return validateUpdate()">
+            <input type="text" placeholder="Username" name="nm1" required>
+            <input type="number" placeholder="Age" name="nm2" required>
+            <div style="text-align: left; margin-bottom: 10px;">
+                <label>Gender:</label>
+                <input type="radio" name="nm3" value="male"> Male
+                <input type="radio" name="nm3" value="female"> Female
+            </div>
+            <input type="tel" placeholder="Phone (10 digits)" name="nm4" required>
+            <input type="email" placeholder="Email" name="nm5" required>
+            <input type="text" placeholder="Address" name="nm6" required>
+            <input type="password" placeholder="Password" name="nm7" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+</body>
+    </html>
+    
+    
+           
+     
+    
